@@ -237,8 +237,7 @@ if ($PSVersionTable -eq $null) {
 $current_ps_version = [version]"$($PSVersionTable.PSVersion.Major).$($PSVersionTable.PSVersion.Minor)"
 if ($current_ps_version -eq [version]$version) {
     Write-Log -message "current and target PS version are the same, no action is required"
-    Clear-AutoLogon
-    exit 1337
+    exit 0
 }
 
 $os_version = [Version](Get-Item -Path "$env:SystemRoot\System32\kernel32.dll").VersionInfo.ProductVersion
